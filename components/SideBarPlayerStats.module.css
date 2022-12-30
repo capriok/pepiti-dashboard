@@ -1,0 +1,30 @@
+.player-link {
+   padding: 0.3em 0.6em;
+   border: 1px solid lime;
+   border-radius: 0.5em;
+}
+
+.player-link:hover,
+.player-link:focus {
+   background-color: rgba(73, 255, 5, 0.3);
+}
+
+.player-link:active {
+   transform: scale(0.95);
+}
+
+.stats-container {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5em;
+   padding: 0.4em;
+   background-color: rgba(240, 240, 240, 0.05);
+   border-radius: 0.5em;
+}
+
+@media (max-width: 800px) {
+   .stats-container {
+      max-height: 50vh;
+      overflow-y: scroll;
+   }
+}
