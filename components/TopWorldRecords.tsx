@@ -1,20 +1,20 @@
-import { Flex, Group, ThemeIcon, Title } from '@mantine/core'
+import { Table, Text, ThemeIcon } from '@mantine/core'
 import { IconTrophy } from '@tabler/icons'
 import Link from 'next/link'
 import { WorldRecords } from '../types'
 
 interface PositionIconProps {
-   position: 'first' | 'second' | 'third'
+   position: number
 }
 
 export const PositionIcon = ({ position }: PositionIconProps) => {
    const handlePosition = () => {
       switch (position) {
-         case 'first':
+         case 1:
             return { from: 'gold', to: 'yellow' }
-         case 'second':
+         case 2:
             return { from: 'gray', to: 'white' }
-         case 'third':
+         case 3:
             return { from: 'brown', to: 'yellow' }
       }
    }
@@ -22,9 +22,8 @@ export const PositionIcon = ({ position }: PositionIconProps) => {
    return (
       <ThemeIcon
          size='lg'
-         style={{ position: 'absolute' }}
          variant='gradient'
-         gradient={{ from: handlePosition().from, to: handlePosition().to }}
+         gradient={{ from: handlePosition()?.from as string, to: handlePosition()?.to as string }}
       >
          <IconTrophy />
       </ThemeIcon>
@@ -33,24 +32,35 @@ export const PositionIcon = ({ position }: PositionIconProps) => {
 
 export const TopWorldRecords = ({ worldRecords }: { worldRecords: WorldRecords }) => {
    const riderGuids = Object.keys(worldRecords)
+   const rows = riderGuids.slice(0, 5).map((guid, idx) => (
+      <tr key={guid}>
+         <td style={{ height: '50px' }}>
+            {(idx === 0 || idx === 1 || idx === 2) && <PositionIcon position={idx + 1} />}
+         </td>
+         <td>
+            <Link href={`/rider/${guid}`}>{worldRecords[guid].name}</Link>
+         </td>
+         <td>
+            <Text>{worldRecords[guid].total}</Text>
+         </td>
+      </tr>
+   ))
 
    return (
-      <Flex direction='column' h='100%' justify='space-around' p='xl'>
-         {riderGuids.slice(0, 5).map((guid, idx) => (
-            <>
-               <Group key={idx}>
-                  {idx === 0 && <PositionIcon position='first' />}
-                  {idx === 1 && <PositionIcon position='second' />}
-                  {idx === 2 && <PositionIcon position='third' />}
-                  <Group ml={50}>
-                     <Title order={3}>{idx + 1}.</Title>
-                     <Title order={5}>
-                        <Link href={`/rider/${guid}`}>{worldRecords[guid].name}</Link> - {worldRecords[guid].total}
-                     </Title>
-                  </Group>
-               </Group>
-            </>
-         ))}
-      </Flex>
+      <>
+         <Text size='sm' ml='sm' opacity={0.75}>
+            World Records
+         </Text>
+         <Table bg='rgba(255,255,255,0.025)' style={{ borderRadius: '15px', borderCollapse: 'collapse' }}>
+            <thead>
+               <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>
+                  <th style={{ borderTopLeftRadius: '15px', padding: '1em' }}>Rank</th>
+                  <th>Rider</th>
+                  <th style={{ borderTopRightRadius: '15px' }}>Amount</th>
+               </tr>
+            </thead>
+            <tbody>{rows}</tbody>
+         </Table>
+      </>
    )
 }

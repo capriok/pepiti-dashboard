@@ -16,14 +16,8 @@ export default function App({ Component, pageProps }: AppProps) {
                Paper: {
                   styles: (theme) => ({
                      root: {
-                        borderColor: theme.colors.green[8],
-                     },
-                  }),
-               },
-               Carousel: {
-                  styles: (theme) => ({
-                     indicator: {
-                        backgroundColor: theme.colors.green[8],
+                        // borderColor: theme.colors.green[8],
+                        backgroundColor: 'rgba(255,255,255,0.025)',
                      },
                   }),
                },

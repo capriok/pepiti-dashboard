@@ -1,4 +1,4 @@
-import { Card, Flex, Group, Title } from '@mantine/core'
+import { Card, Flex, Group, Table, Text, Title } from '@mantine/core'
 import Link from 'next/link'
 import { TopMMRandSR } from '../types'
 import { PositionIcon } from './TopWorldRecords'
@@ -9,24 +9,36 @@ interface TopRanksProps {
 }
 
 export const TopRanks = ({ topMMR, topSR }: TopRanksProps) => {
+   const rows = (topMMR ?? topSR)?.riders.slice(0, 5).map((rank, idx) => (
+      <tr key={rank._id}>
+         <td style={{ height: '50px' }}>
+            {(idx === 0 || idx === 1 || idx === 2) && <PositionIcon position={idx + 1} />}
+         </td>
+         <td>
+            <Link href={`/rider/${rank._id}`}>{rank.name}</Link>
+         </td>
+         <td>
+            <Text>{topSR ? rank.SR : rank.MMR}</Text>
+         </td>
+      </tr>
+   ))
+
    return (
-      <Flex direction='column' h='100%' justify='space-around' p='xl'>
-         {/* If there is no topMMR use topSR */}
-         {(topMMR ?? topSR)?.riders.slice(0, 5).map((rank, idx) => (
-            <>
-               <Group key={idx}>
-                  {idx === 0 && <PositionIcon position='first' />}
-                  {idx === 1 && <PositionIcon position='second' />}
-                  {idx === 2 && <PositionIcon position='third' />}
-                  <Group ml={50}>
-                     <Title order={3}>{idx + 1}.</Title>
-                     <Title order={5}>
-                        <Link href={`/rider/${rank._id}`}>{rank.name}</Link> - {topSR ? rank.SR : rank.MMR}
-                     </Title>
-                  </Group>
-               </Group>
-            </>
-         ))}
-      </Flex>
+      <>
+         <Text size='sm' ml='sm' opacity={0.75}>
+            {topSR ? 'Top SR' : 'Top MMR'}
+         </Text>
+         <Table bg='rgba(255,255,255,0.025)' style={{ borderRadius: '15px', borderCollapse: 'collapse' }}>
+            <thead>
+               <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>
+                  <th style={{ borderTopLeftRadius: '15px', padding: '1em' }}>Rank</th>
+                  <th>Rider</th>
+                  <th style={{ borderTopRightRadius: '15px' }}>Amount</th>
+               </tr>
+            </thead>
+            <tbody>{rows}</tbody>
+            {/* <tfoot style={{ backgroundColor: 'rgba(255,255,255,0.1)', height: '20px' }} /> */}
+         </Table>
+      </>
    )
 }

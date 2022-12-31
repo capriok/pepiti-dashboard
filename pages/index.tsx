@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { MOBILE_WIDTH } from '../components/TrackCard'
 import { Dashboard } from '../types'
-import { ActionIcon, Drawer, Flex } from '@mantine/core'
+import { ActionIcon, Box, Drawer, Flex, Grid, ScrollArea, Stack } from '@mantine/core'
 import { ServerTracksCarousel } from '../components/ServerTracksCarousel'
 import { Summary } from '../components/Summary'
 import { SideBarPlayerStats } from '../components/SideBarPlayerStats'
@@ -13,14 +13,6 @@ import { IconLayoutSidebarLeftExpand } from '@tabler/icons'
 export default function Home({ tracks, summary, worldRecords, topMMR, topSR }: Dashboard) {
    const { width } = useViewportSize()
    const [open, setOpen] = useState(false)
-
-   useEffect(() => {
-      if (width > MOBILE_WIDTH) {
-         setOpen(true)
-      } else {
-         setOpen(false)
-      }
-   }, [width])
 
    return (
       <>
@@ -45,9 +37,7 @@ export default function Home({ tracks, summary, worldRecords, topMMR, topSR }: D
             <Drawer
                opened={open}
                onClose={() => setOpen(false)}
-               withOverlay={width < MOBILE_WIDTH}
                size={width < MOBILE_WIDTH ? '60vw' : '20%'}
-               withCloseButton={width < MOBILE_WIDTH}
                styles={(theme) => ({
                   drawer: {
                      backgroundColor: theme.colors.dark[6],
@@ -62,11 +52,13 @@ export default function Home({ tracks, summary, worldRecords, topMMR, topSR }: D
                <SideBarPlayerStats />
             </Drawer>
 
-            <Flex direction='column' justify='space-around' h='100vh' ml={width < MOBILE_WIDTH ? 0 : '20vw'}>
+            <Stack mih='100vh' justify='space-around'>
                <Summary summary={summary} />
+
                <Leaderboards worldRecords={worldRecords} topMMR={topMMR} topSR={topSR} />
+
                <ServerTracksCarousel tracks={tracks} />
-            </Flex>
+            </Stack>
          </main>
       </>
    )

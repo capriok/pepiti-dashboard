@@ -1,5 +1,5 @@
 import { Carousel, Embla, useAnimationOffsetEffect } from '@mantine/carousel'
-import { Title } from '@mantine/core'
+import { Stack, Title } from '@mantine/core'
 import { Track } from '../types'
 import Autoplay from 'embla-carousel-autoplay'
 import { TrackCard } from './TrackCard'
@@ -14,10 +14,8 @@ export const ServerTracksCarousel = ({ tracks }: { tracks: Track[] }) => {
    useAnimationOffsetEffect(embla, TRANSITION_DURATION)
 
    return (
-      <div>
-         <Title order={2} p='1em 0'>
-            Server Tracks
-         </Title>
+      <Stack maw='100vw' pb='1rem'>
+         <Title order={2}>Server Tracks</Title>
          <Carousel
             getEmblaApi={setEmbla}
             slideSize='70%'
@@ -35,6 +33,6 @@ export const ServerTracksCarousel = ({ tracks }: { tracks: Track[] }) => {
                </Carousel.Slide>
             ))}
          </Carousel>
-      </div>
+      </Stack>
    )
 }
