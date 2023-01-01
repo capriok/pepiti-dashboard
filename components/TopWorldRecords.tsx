@@ -35,7 +35,11 @@ export const TopWorldRecords = ({ worldRecords }: { worldRecords: WorldRecords }
    const rows = riderGuids.slice(0, 5).map((guid, idx) => (
       <tr key={guid}>
          <td style={{ height: '50px' }}>
-            {(idx === 0 || idx === 1 || idx === 2) && <PositionIcon position={idx + 1} />}
+            {idx === 0 || idx === 1 || idx === 2 ? (
+               <PositionIcon position={idx + 1} />
+            ) : (
+               <Text pl='sm'>{idx + 1}.</Text>
+            )}
          </td>
          <td>
             <Link href={`/rider/${guid}`}>{worldRecords[guid].name}</Link>

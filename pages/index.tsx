@@ -65,8 +65,8 @@ export default function Home({ tracks, summary, worldRecords, topMMR, topSR }: D
 }
 
 export async function getStaticProps() {
-   const tracksRes = await fetch('https://pepiti.com/stats/api/v1/records')
-   const { tracks } = await tracksRes.json()
+   const tracksRes = await fetch('https://pepiti.com/stats/api/v0/records')
+   const tracks = await tracksRes.json()
 
    const summaryRes = await fetch('https://pepiti.com/stats/api/v0/summary')
    const summary = await summaryRes.json()
@@ -88,5 +88,6 @@ export async function getStaticProps() {
          topMMR,
          topSR,
       },
+      revalidate: 10,
    }
 }

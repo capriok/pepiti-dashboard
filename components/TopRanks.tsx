@@ -2,6 +2,7 @@ import { Card, Flex, Group, Table, Text, Title } from '@mantine/core'
 import Link from 'next/link'
 import { TopMMRandSR } from '../types'
 import { PositionIcon } from './TopWorldRecords'
+import styles from './RanksLeaderboards.module.css'
 
 interface TopRanksProps {
    topMMR?: TopMMRandSR
@@ -11,8 +12,12 @@ interface TopRanksProps {
 export const TopRanks = ({ topMMR, topSR }: TopRanksProps) => {
    const rows = (topMMR ?? topSR)?.riders.slice(0, 5).map((rank, idx) => (
       <tr key={rank._id}>
-         <td style={{ height: '50px' }}>
-            {(idx === 0 || idx === 1 || idx === 2) && <PositionIcon position={idx + 1} />}
+         <td className={styles['t-data']}>
+            {idx === 0 || idx === 1 || idx === 2 ? (
+               <PositionIcon position={idx + 1} />
+            ) : (
+               <Text pl='sm'>{idx + 1}.</Text>
+            )}
          </td>
          <td>
             <Link href={`/rider/${rank._id}`}>{rank.name}</Link>
@@ -28,7 +33,7 @@ export const TopRanks = ({ topMMR, topSR }: TopRanksProps) => {
          <Text size='sm' ml='sm' opacity={0.75}>
             {topSR ? 'Top SR' : 'Top MMR'}
          </Text>
-         <Table bg='rgba(255,255,255,0.025)' style={{ borderRadius: '15px', borderCollapse: 'collapse' }}>
+         <Table bg='rgba(255,255,255,0.025)' className={styles['table']}>
             <thead>
                <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>
                   <th style={{ borderTopLeftRadius: '15px', padding: '1em' }}>Rank</th>
@@ -37,7 +42,6 @@ export const TopRanks = ({ topMMR, topSR }: TopRanksProps) => {
                </tr>
             </thead>
             <tbody>{rows}</tbody>
-            {/* <tfoot style={{ backgroundColor: 'rgba(255,255,255,0.1)', height: '20px' }} /> */}
          </Table>
       </>
    )

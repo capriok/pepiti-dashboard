@@ -1,35 +1,37 @@
 import { Carousel, Embla, useAnimationOffsetEffect } from '@mantine/carousel'
 import { Stack, Title } from '@mantine/core'
-import { Track } from '../types'
+import { Track, v0Tracks } from '../types'
 import Autoplay from 'embla-carousel-autoplay'
 import { TrackCard } from './TrackCard'
 import { useRef, useState } from 'react'
+import { useMediaQuery } from '@mantine/hooks'
 
-export const ServerTracksCarousel = ({ tracks }: { tracks: Track[] }) => {
+export const ServerTracksCarousel = ({ tracks }: { tracks: v0Tracks }) => {
    const TRANSITION_DURATION = 10000
    // const trackNames = Object.keys(records)
    const autoplay = useRef(Autoplay({ delay: TRANSITION_DURATION }))
    const [embla, setEmbla] = useState<Embla | null>(null)
+   const matchesMinW = useMediaQuery('(min-width: 800px)')
 
    useAnimationOffsetEffect(embla, TRANSITION_DURATION)
 
    return (
-      <Stack maw='100vw' pb='1rem'>
+      <Stack pb='1rem'>
          <Title order={2}>Server Tracks</Title>
          <Carousel
             getEmblaApi={setEmbla}
             slideSize='70%'
             slideGap='xl'
-            height='25vh'
             loop
+            withControls={matchesMinW}
             controlSize={40}
             plugins={[autoplay.current]}
             onMouseEnter={autoplay.current.stop}
             onMouseLeave={autoplay.current.reset}
          >
-            {tracks?.map((track, idx) => (
-               <Carousel.Slide key={idx}>
-                  <TrackCard name={track.name} records={track.records} total_laps={track.total_laps} />
+            {Object.keys(tracks)?.map((track, idx) => (
+               <Carousel.Slide key={idx} h={'50%'}>
+                  <TrackCard name={track} records={tracks[track]} total_laps={0} />
                </Carousel.Slide>
             ))}
          </Carousel>

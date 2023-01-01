@@ -1,6 +1,7 @@
 export interface ServicesSummary {
    unique_riders: number
    records: number
+   races: number
    laps: number
 }
 
@@ -43,6 +44,10 @@ export interface TrackRecord {
    split_2: number
 }
 
+export interface v0Tracks {
+   [key: string]: TrackRecord[]
+}
+
 export interface Track {
    name: string
    records: TrackRecord[]
@@ -50,7 +55,7 @@ export interface Track {
 }
 
 export interface Dashboard {
-   tracks: Track[]
+   tracks: v0Tracks
    summary: ServicesSummary
    worldRecords: WorldRecords
    topMMR: TopMMRandSR

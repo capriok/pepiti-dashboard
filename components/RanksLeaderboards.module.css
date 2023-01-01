@@ -1,0 +1,15 @@
+.t-data {
+   height: 50px;
+}
+
+.table {
+   border-radius: 15px;
+   border-collapse: collapse;
+}
+
+.t-row {
+   background-color: 'rgb(255,255,255,0.05)';
+}
+
+.t-header {
+}
