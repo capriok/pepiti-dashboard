@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { MantineProvider } from '@mantine/core'
 import { Open_Sans } from '@next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 
 const openSans = Open_Sans()
 
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
       >
          <main className={openSans.className}>
             <Component {...pageProps} />
+            <Analytics />
          </main>
       </MantineProvider>
    )
