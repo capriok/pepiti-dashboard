@@ -1,6 +1,6 @@
 'use client'
 
-import { Container, Flex, Stack } from '@mantine/core'
+import { Stack } from '@mantine/core'
 import RootStyleRegistry from './emotion'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

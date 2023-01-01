@@ -1,7 +1,8 @@
+'use client'
 import { Avatar, Button, Group, Select, Stack, Text, Title } from '@mantine/core'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { RiderRecord } from '../types'
+import { RiderRecord } from '../../types'
 import styles from './SideBarPlayerStats.module.css'
 
 export interface PlayerData {

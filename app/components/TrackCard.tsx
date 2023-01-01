@@ -1,8 +1,9 @@
+'use client'
 import { Badge, Card, Group, Table, Text, Title } from '@mantine/core'
 import { useViewportSize } from '@mantine/hooks'
 import Link from 'next/link'
-import { Track } from '../types'
-import { formatLapTimes } from '../utils/formatLapTimes'
+import { Track } from '../../types'
+import { formatLapTimes } from '../../utils/formatLapTimes'
 
 export const MOBILE_WIDTH = 1000
 

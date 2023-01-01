@@ -1,10 +1,11 @@
+'use client'
 import { Carousel, Embla, useAnimationOffsetEffect } from '@mantine/carousel'
 import { Stack, Title } from '@mantine/core'
-import { Track, v0Tracks } from '../types'
 import Autoplay from 'embla-carousel-autoplay'
-import { TrackCard } from './TrackCard'
 import { useRef, useState } from 'react'
 import { useMediaQuery } from '@mantine/hooks'
+import { v0Tracks } from '../../types'
+import { TrackCard } from './TrackCard'
 
 export const ServerTracksCarousel = ({ tracks }: { tracks: v0Tracks }) => {
    const TRANSITION_DURATION = 10000

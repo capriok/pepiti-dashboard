@@ -1,8 +1,9 @@
+'use client'
 import { Card, Flex, Group, Table, Text, Title } from '@mantine/core'
 import Link from 'next/link'
-import { TopMMRandSR } from '../types'
 import { PositionIcon } from './TopWorldRecords'
 import styles from './RanksLeaderboards.module.css'
+import { TopMMRandSR } from '../../types'
 
 interface TopRanksProps {
    topMMR?: TopMMRandSR

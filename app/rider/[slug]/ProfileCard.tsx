@@ -1,8 +1,8 @@
 'use client'
 import { Avatar, Card, Grid, Group, Table, Text, Title } from '@mantine/core'
-import { MAX_WIDTH } from '../../../components/Summary'
-import styles from '../../../components/RanksLeaderboards.module.css'
+import styles from '../../components/RanksLeaderboards.module.css'
 import { RiderRecord } from '../../../types'
+import { MAX_WIDTH } from '../../components/Summary'
 
 export const ProfileCard = ({ riderRecord }: { riderRecord: RiderRecord }) => {
    const rows = Object.keys(riderRecord.world_records)?.map((category, idx) => {

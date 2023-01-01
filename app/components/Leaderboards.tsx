@@ -1,5 +1,6 @@
+'use client'
 import { Flex, Grid, Table, Tabs } from '@mantine/core'
-import { TopMMRandSR, WorldRecords } from '../types'
+import { TopMMRandSR, WorldRecords } from '../../types'
 import { MAX_WIDTH } from './Summary'
 import { TopRanks } from './TopRanks'
 import { TopWorldRecords } from './TopWorldRecords'

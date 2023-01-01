@@ -1,5 +1,6 @@
+'use client'
 import { Container, Flex, Grid, Group, Paper, Stack, Text, Title } from '@mantine/core'
-import { ServicesSummary } from '../types'
+import { ServicesSummary } from '../../types'
 
 const SummaryContainer = ({ summaryNum, title }: { summaryNum: number; title: string }) => {
    return (

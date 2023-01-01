@@ -54,7 +54,7 @@ export interface Track {
    total_laps: number
 }
 
-export interface Dashboard {
+export interface DashboardProps {
    tracks: v0Tracks
    summary: ServicesSummary
    worldRecords: WorldRecords
