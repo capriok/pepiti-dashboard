@@ -19,12 +19,12 @@ export const ProfileCard = ({ riderRecord }: { riderRecord: RiderRecord }) => {
    })
 
    return (
-      <Card w='90vw' maw={MAX_WIDTH} mt='md' shadow='xl' radius='lg'>
+      <Card w='85vw' maw={MAX_WIDTH} mt='md' shadow='xl' radius='lg'>
          <Card.Section p='xl'>
             <Grid align='center'>
                <Grid.Col span={12} md={2}>
                   <Avatar color='green' size='xl' radius='lg'>
-                     Pe
+                     {riderRecord.name.slice(0, 2)}
                   </Avatar>
                   <Title order={2}>{riderRecord.name}</Title>
                </Grid.Col>

@@ -4,7 +4,7 @@ import { ServicesSummary } from '../../types'
 
 const SummaryContainer = ({ summaryNum, title }: { summaryNum: number; title: string }) => {
    return (
-      <Paper p='xl' radius='lg' shadow='xl' mx='auto' w='20vw' h='150px' miw='110px' maw='450px'>
+      <Paper p='xl' radius='lg' shadow='xl' mx='auto' w='20vw' h='150px' miw='110px' maw='350px'>
          <Stack align='center' justify='center' h='100%'>
             <Text align='center'>{title}</Text>
             <Title order={3}>{summaryNum.toLocaleString()}</Title>

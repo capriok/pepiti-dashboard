@@ -18,12 +18,14 @@ async function getRiderRecentRaces(slug: string) {
 }
 
 export default async function Page({ params: { slug } }: { params: { slug: string } }) {
-   const riderData: RiderRecord = await getRiderData(slug)
-   const recentRaces: TrackRecord[] = await getRiderRecentRaces(slug)
+   const riderData = getRiderData(slug)
+   const recentRacesData = getRiderRecentRaces(slug)
+
+   const [riderRecord, recentRaces] = await Promise.all([riderData, recentRacesData])
 
    return (
       <>
-         <ProfileCard riderRecord={riderData} />
+         <ProfileCard riderRecord={riderRecord} />
          <LineChart recentRaces={recentRaces} />
       </>
    )
