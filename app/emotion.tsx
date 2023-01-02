@@ -1,6 +1,6 @@
 'use client'
 import { CacheProvider } from '@emotion/react'
-import { useEmotionCache, MantineProvider } from '@mantine/core'
+import { useEmotionCache, MantineProvider, Stack } from '@mantine/core'
 import { useServerInsertedHTML } from 'next/navigation'
 
 export default function RootStyleRegistry({ children }: { children: React.ReactNode }) {
@@ -35,7 +35,9 @@ export default function RootStyleRegistry({ children }: { children: React.ReactN
                },
             }}
          >
-            {children}
+            <Stack bg='dark' justify='center' align='center' mih='100vh'>
+               {children}
+            </Stack>
          </MantineProvider>
       </CacheProvider>
    )

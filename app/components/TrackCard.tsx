@@ -11,19 +11,7 @@ export const TrackCard = ({ name, records, total_laps }: Track) => {
    const { width } = useViewportSize()
    const rows = records?.map((rec, idx) => {
       return (
-         <tr
-            key={idx}
-            // style={{
-            //    background:
-            //       idx === 0
-            //          ? 'linear-gradient(90deg, rgba(255,221,0,0.4) 0%, rgba(255,255,255,0) 18%)'
-            //          : idx === 1
-            //          ? 'linear-gradient(90deg, rgba(221,221,221,0.2) 0%, rgba(255,255,255,0) 18%)'
-            //          : idx === 2
-            //          ? 'linear-gradient(90deg, rgba(200,173,0,0.2) 0%, rgba(255,255,255,0) 18%)'
-            //          : 'none',
-            // }}
-         >
+         <tr key={idx}>
             <td>
                <Link href={`/rider/${rec.rider_guid}`}>
                   <Text fw={700}>{rec.rider_name}</Text>
@@ -43,12 +31,12 @@ export const TrackCard = ({ name, records, total_laps }: Track) => {
    })
 
    return (
-      <Card shadow='sm' radius='lg'>
+      <Card shadow='sm' radius='lg' h='100%' style={{ overflowY: 'auto' }}>
          <Card.Section withBorder inheritPadding py='sm'>
             <Group position='apart'>
                <Title order={2}>{name}</Title>
                <Badge size='lg' color='teal'>
-                  Total Laps: {total_laps}
+                  Total Laps: {total_laps.toLocaleString()}
                </Badge>
             </Group>
          </Card.Section>
@@ -57,7 +45,7 @@ export const TrackCard = ({ name, records, total_laps }: Track) => {
                <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>
                   <th style={{ borderTopLeftRadius: '15px' }}>Name</th>
                   <th>Bike</th>
-                  {width > 700 && (
+                  {width > MOBILE_WIDTH && (
                      <>
                         <th>Avg Speed</th>
                         <th>Split 1</th>

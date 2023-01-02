@@ -4,12 +4,11 @@ import { Stack, Title } from '@mantine/core'
 import Autoplay from 'embla-carousel-autoplay'
 import { useRef, useState } from 'react'
 import { useMediaQuery } from '@mantine/hooks'
-import { v0Tracks } from '../../types'
+import { TopTrackRecords } from '../../types'
 import { TrackCard } from './TrackCard'
 
-export const ServerTracksCarousel = ({ tracks }: { tracks: v0Tracks }) => {
+export const TracksCarousel = ({ tracks }: { tracks: TopTrackRecords }) => {
    const TRANSITION_DURATION = 10000
-   // const trackNames = Object.keys(records)
    const autoplay = useRef(Autoplay({ delay: TRANSITION_DURATION }))
    const [embla, setEmbla] = useState<Embla | null>(null)
    const matchesMinW = useMediaQuery('(min-width: 800px)')
@@ -18,11 +17,14 @@ export const ServerTracksCarousel = ({ tracks }: { tracks: v0Tracks }) => {
 
    return (
       <Stack pb='1rem'>
-         <Title order={2}>Server Tracks</Title>
+         <Title order={2} ml='md'>
+            Server Track Records
+         </Title>
          <Carousel
             getEmblaApi={setEmbla}
             slideSize='70%'
             slideGap='xl'
+            maw='99vw'
             loop
             withControls={matchesMinW}
             controlSize={40}
@@ -30,9 +32,9 @@ export const ServerTracksCarousel = ({ tracks }: { tracks: v0Tracks }) => {
             onMouseEnter={autoplay.current.stop}
             onMouseLeave={autoplay.current.reset}
          >
-            {Object.keys(tracks)?.map((track, idx) => (
-               <Carousel.Slide key={idx} h={'50%'}>
-                  <TrackCard name={track} records={tracks[track]} total_laps={0} />
+            {tracks.records?.map((track, idx) => (
+               <Carousel.Slide key={idx} mah='40vh'>
+                  <TrackCard name={track.name} records={track.records} total_laps={track.total_laps} />
                </Carousel.Slide>
             ))}
          </Carousel>

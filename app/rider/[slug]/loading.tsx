@@ -1,7 +1,5 @@
 'use client'
 import { Avatar, Card, Grid, Group, Skeleton, Stack, Text, Title } from '@mantine/core'
-import LoadingSpinner from '../../components/Loader'
-import styles from '../../components/RanksLeaderboards.module.css'
 import { MAX_WIDTH } from '../../components/Summary'
 
 export default function Page() {

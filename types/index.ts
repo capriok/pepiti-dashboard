@@ -44,8 +44,12 @@ export interface TrackRecord {
    split_2: number
 }
 
-export interface v0Tracks {
-   [key: string]: TrackRecord[]
+export interface TopTrackRecords {
+   records: {
+      name: string
+      records: TrackRecord[]
+      total_laps: number
+   }[]
 }
 
 export interface Track {
@@ -54,13 +58,13 @@ export interface Track {
    total_laps: number
 }
 
-export interface DashboardProps {
-   tracks: v0Tracks
-   summary: ServicesSummary
-   worldRecords: WorldRecords
-   topMMR: TopMMRandSR
-   topSR: TopMMRandSR
-}
+// export interface DashboardProps {
+//    tracks: v0Tracks
+//    summary: ServicesSummary
+//    worldRecords: WorldRecords
+//    topMMR: TopMMRandSR
+//    topSR: TopMMRandSR
+// }
 
 export interface WorldRecords {
    [key: string]: {
@@ -69,13 +73,14 @@ export interface WorldRecords {
    }
 }
 
-export interface RiderTopMMRandSR {
+export interface TopRiderData {
    _id: string
    MMR: number
    SR: number
    name: string
+   contact: number
 }
 
-export interface TopMMRandSR {
-   riders: RiderTopMMRandSR[]
+export interface TopData {
+   riders: TopRiderData[]
 }

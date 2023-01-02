@@ -1,6 +1,3 @@
-'use client'
-
-import { Stack } from '@mantine/core'
 import RootStyleRegistry from './emotion'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -8,11 +5,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html>
          <head />
          <body>
-            <RootStyleRegistry>
-               <Stack bg='dark' justify='center' align='center' mih='100vh'>
-                  {children}
-               </Stack>
-            </RootStyleRegistry>
+            <RootStyleRegistry>{children}</RootStyleRegistry>
          </body>
       </html>
    )

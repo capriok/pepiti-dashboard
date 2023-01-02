@@ -1,12 +1,6 @@
 'use client'
 import { Grid, Skeleton, Stack } from '@mantine/core'
-import { ServicesSummary } from '../types'
-import { Leaderboards } from './components/Leaderboards'
-import LoadingSpinner from './components/Loader'
-import { ServerTracksCarousel } from './components/ServerTracksCarousel'
-import { MAX_WIDTH, Summary } from './components/Summary'
-
-const fakeSummary: ServicesSummary = { laps: 100, records: 1000, races: 1000, unique_riders: 1000 }
+import { MAX_WIDTH } from './components/Summary'
 
 export default function Page() {
    return (

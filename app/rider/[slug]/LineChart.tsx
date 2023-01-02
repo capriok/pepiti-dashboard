@@ -31,7 +31,7 @@ export const options = {
 }
 
 export const LineChart = ({ recentRaces }: { recentRaces: TrackRecord[] }) => {
-   const labels = recentRaces.map((record) => record.track)
+   const labels = recentRaces.map((record) => record.bike)
    const data = {
       labels,
       datasets: [

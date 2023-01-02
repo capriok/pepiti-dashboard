@@ -33,7 +33,7 @@ export const PositionIcon = ({ position }: PositionIconProps) => {
 
 export const TopWorldRecords = ({ worldRecords }: { worldRecords: WorldRecords }) => {
    const riderGuids = Object.keys(worldRecords)
-   const rows = riderGuids.slice(0, 5).map((guid, idx) => (
+   const rows = riderGuids.map((guid, idx) => (
       <tr key={guid}>
          <td style={{ height: '50px' }}>
             {idx === 0 || idx === 1 || idx === 2 ? (
@@ -56,7 +56,12 @@ export const TopWorldRecords = ({ worldRecords }: { worldRecords: WorldRecords }
          <Text size='sm' ml='sm' opacity={0.75}>
             World Records
          </Text>
-         <Table bg='rgba(255,255,255,0.025)' style={{ borderRadius: '15px', borderCollapse: 'collapse' }}>
+         <Table
+            bg='rgba(255,255,255,0.025)'
+            style={{ borderRadius: '15px', borderCollapse: 'collapse' }}
+            mx='auto'
+            maw='95vw'
+         >
             <thead>
                <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>
                   <th style={{ borderTopLeftRadius: '15px', padding: '1em' }}>Rank</th>
