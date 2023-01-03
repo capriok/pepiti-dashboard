@@ -73,14 +73,15 @@ export interface WorldRecords {
    }
 }
 
-export interface TopRiderData {
+export interface TopRecordData {
    _id: string
    MMR: number
    SR: number
    name: string
    contact: number
+   laps: number
 }
 
-export interface TopData {
-   riders: TopRiderData[]
-}
+// export interface TopData {
+//    riders: TopRiderData[]
+// }

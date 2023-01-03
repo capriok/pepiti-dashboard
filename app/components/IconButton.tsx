@@ -12,10 +12,10 @@ export const IconButton = ({ children, onClick }: IconButtonProps) => {
          <Button
             h={50}
             radius='md'
-            pos='absolute'
+            // pos='absolute'
             color='green'
-            right={20}
-            top={20}
+            // right={20}
+            // top={20}
             onClick={onClick}
             styles={(theme) => ({
                root: {

@@ -46,7 +46,7 @@ export const LineChart = ({ recentRaces }: { recentRaces: TrackRecord[] }) => {
    }
 
    return (
-      <Box mb='md' w='70vw' maw={MAX_WIDTH}>
+      <Box mb='md' w='100%' maw={MAX_WIDTH}>
          <Line height={200} options={options} data={data} />
       </Box>
    )

@@ -2,18 +2,39 @@
 import { Title } from '@mantine/core'
 import styles from './Loader.module.css'
 
-export default function LoadingSpinner({ withTitle }: { withTitle?: boolean }) {
+interface LoaderProps {
+   withTitle?: boolean
+   text?: string
+   variant?: 'ring' | 'circleDots'
+}
+
+export default function Loader({ withTitle = true, text = 'Loading...', variant = 'ring' }: LoaderProps) {
    return (
       <>
-         {withTitle && <Title>Loading...</Title>}
+         {withTitle && <Title order={3}>{text}</Title>}
 
          {/* Loader */}
-         <div className={styles['lds-ring']}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
+         {variant === 'ring' && (
+            <div className={styles.ring}>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+            </div>
+         )}
+
+         {variant === 'circleDots' && (
+            <div className={styles.circleDots}>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+            </div>
+         )}
       </>
    )
 }

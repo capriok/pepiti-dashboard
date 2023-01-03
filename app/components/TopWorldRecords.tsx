@@ -35,7 +35,7 @@ export const TopWorldRecords = ({ worldRecords }: { worldRecords: WorldRecords }
    const riderGuids = Object.keys(worldRecords)
    const rows = riderGuids.map((guid, idx) => (
       <tr key={guid}>
-         <td style={{ height: '50px' }}>
+         <td style={{ height: '30px' }}>
             {idx === 0 || idx === 1 || idx === 2 ? (
                <PositionIcon position={idx + 1} />
             ) : (

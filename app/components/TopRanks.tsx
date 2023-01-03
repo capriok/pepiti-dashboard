@@ -3,15 +3,15 @@ import { Table, Text } from '@mantine/core'
 import Link from 'next/link'
 import { PositionIcon } from './TopWorldRecords'
 import styles from './RanksLeaderboards.module.css'
-import { TopData } from '../../types'
+import { TopRecordData } from '../../types'
 
 interface TopRanksProps {
-   filterBy: 'SR' | 'MMR' | 'contact'
-   topData?: TopData
+   filterBy: 'SR' | 'MMR' | 'contact' | 'bikes'
+   topData?: TopRecordData[]
 }
 
 export const TopRanks = ({ topData, filterBy }: TopRanksProps) => {
-   const rows = topData?.riders.map((rank, idx) => (
+   const rows = topData?.map((rank, idx) => (
       <tr key={rank._id}>
          <td className={styles['t-data']}>
             {idx === 0 || idx === 1 || idx === 2 ? (
@@ -21,10 +21,12 @@ export const TopRanks = ({ topData, filterBy }: TopRanksProps) => {
             )}
          </td>
          <td>
-            <Link href={`/rider/${rank._id}`}>{rank.name}</Link>
+            <Link href={`/rider/${rank._id}`}>
+               <Text>{rank.name}</Text>
+            </Link>
          </td>
          <td>
-            <Text>{rank[filterBy]}</Text>
+            <Text>{filterBy === 'bikes' ? rank.laps.toLocaleString() : rank[filterBy]}</Text>
          </td>
       </tr>
    ))
@@ -39,7 +41,7 @@ export const TopRanks = ({ topData, filterBy }: TopRanksProps) => {
                <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>
                   <th style={{ borderTopLeftRadius: '15px', padding: '1em' }}>Rank</th>
                   <th>Rider</th>
-                  <th style={{ borderTopRightRadius: '15px' }}>Amount</th>
+                  <th style={{ borderTopRightRadius: '15px' }}>{filterBy === 'bikes' ? 'Laps' : 'Amount'}</th>
                </tr>
             </thead>
             <tbody>{rows}</tbody>

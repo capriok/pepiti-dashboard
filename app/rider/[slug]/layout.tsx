@@ -1,19 +1,24 @@
 'use client'
+import { IconLayoutSidebarLeftExpand } from '@tabler/icons'
 import Link from 'next/link'
-import { IconHomeInfinity } from '@tabler/icons'
-import React from 'react'
-import { Button } from '@mantine/core'
 import { IconButton } from '../../components/IconButton'
+import { LinkHomeButton } from '../../components/LinkHomeButton'
+import { PageLayout } from './components/PageLayout'
+import styles from './RiderNavBar.module.css'
 
-export default function RiderPageLayout({ children }: { children: React.ReactNode }) {
+export default function RiderPageLayout({ children, params }: { children: React.ReactNode; params: { slug: string } }) {
    return (
       <>
-         <IconButton>
-            <Link href='/'>
-               <IconHomeInfinity color='lime' />
-            </Link>
-         </IconButton>
-         {children}
+         <div className={styles.navBar}>
+            <div className={styles.container}>
+               <IconButton>
+                  <IconLayoutSidebarLeftExpand color='lime' />
+               </IconButton>
+               <LinkHomeButton />
+            </div>
+         </div>
+         <PageLayout sidebar={<Link href={`/rider/${params.slug}/records`}>Records</Link>} content={children} />
+         {/* {children} */}
       </>
    )
 }

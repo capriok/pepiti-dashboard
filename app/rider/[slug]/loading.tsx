@@ -1,11 +1,13 @@
 'use client'
-import { Avatar, Card, Grid, Group, Skeleton, Stack, Text, Title } from '@mantine/core'
+import { Avatar, Card, Grid, Group, Loader, Skeleton, Stack, Text, Title } from '@mantine/core'
 import { MAX_WIDTH } from '../../components/Summary'
 
 export default function Page() {
    return (
-      <Stack mih={'100vh'} justify='flex-start'>
-         <Card w='85vw' maw={MAX_WIDTH} mt='md' shadow='xl' radius='lg'>
+      <Stack mih={'100vh'} justify='center' align='center'>
+         <Loader variant='bars' color='lime' />
+
+         {/* <Card w='85vw' maw={MAX_WIDTH} mt='md' shadow='xl' radius='lg'>
             <Card.Section p='xl'>
                <Grid align='center'>
                   <Grid.Col span={12} md={2}>
@@ -53,7 +55,7 @@ export default function Page() {
             <Skeleton height={200} />
          </Card>
 
-         <Skeleton height={500} />
+         <Skeleton height={500} /> */}
       </Stack>
    )
 }

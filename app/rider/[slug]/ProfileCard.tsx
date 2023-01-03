@@ -19,7 +19,7 @@ export const ProfileCard = ({ riderRecord }: { riderRecord: RiderRecord }) => {
    })
 
    return (
-      <Card w='85vw' maw={MAX_WIDTH} mt='md' shadow='xl' radius='lg'>
+      <Card w='100%' maw={MAX_WIDTH} mt='md' shadow='xl' radius='lg'>
          <Card.Section p='xl'>
             <Grid align='center'>
                <Grid.Col span={12} md={2}>
@@ -57,13 +57,9 @@ export const ProfileCard = ({ riderRecord }: { riderRecord: RiderRecord }) => {
             </Grid>
          </Card.Section>
 
-         <Title order={3} my='sm'>
-            World Records Total: {riderRecord.world_records.total}
-         </Title>
-         <Title order={3} my='sm'>
-            Rider Name: {riderRecord.world_records.name}
-         </Title>
-         <Table bg='rgba(255,255,255,0.025)' className={styles['table']}>
+         <Title order={3}>World Records Total: {riderRecord.world_records.total}</Title>
+         <Title order={3}>Rider Name: {riderRecord.world_records.name}</Title>
+         <Table bg='rgba(255,255,255,0.025)' className={styles.table}>
             <thead>
                <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>
                   <th style={{ borderTopLeftRadius: '15px' }}>Category</th>

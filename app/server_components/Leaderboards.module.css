@@ -1,4 +1,4 @@
-.leaderboards-container {
+.leaderboardsContainer {
    display: flex;
    gap: 2em;
    max-width: 1500px;
@@ -8,16 +8,19 @@
    padding: 0 2rem;
 }
 
-.leaderboards-col {
+.leaderboardsCol {
    display: flex;
    flex-direction: column;
    flex: 1;
-   min-width: 300px;
-   /* width: 100%; */
+   min-width: 350px;
 }
 
 @media (max-width: 700px) {
-   .leaderboards-container {
+   .leaderboardsContainer {
       padding: 0 0.5rem;
+   }
+
+   .leaderboardsCol {
+      min-width: 90vw;
    }
 }
