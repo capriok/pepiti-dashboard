@@ -9,12 +9,24 @@
    display: flex;
    width: 100%;
    justify-content: space-between;
-   max-width: 1200px;
+   max-width: 1500px;
+   padding: 0 2em;
    margin: 0 auto;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
    .container {
       padding: 0 0.5em;
+   }
+}
+
+@media (min-width: 800px) {
+   .sideBarButton,
+   .drawer {
+      display: none;
+   }
+
+   .container {
+      justify-content: flex-end;
    }
 }

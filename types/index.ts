@@ -58,14 +58,6 @@ export interface Track {
    total_laps: number
 }
 
-// export interface DashboardProps {
-//    tracks: v0Tracks
-//    summary: ServicesSummary
-//    worldRecords: WorldRecords
-//    topMMR: TopMMRandSR
-//    topSR: TopMMRandSR
-// }
-
 export interface WorldRecords {
    [key: string]: {
       name: string
@@ -82,6 +74,69 @@ export interface TopRecordData {
    laps: number
 }
 
-// export interface TopData {
-//    riders: TopRiderData[]
-// }
+export interface RaceData {
+   _id: string
+   track: string
+   Race1: {
+      FastestLap: {
+         [key: string]: FastestLap
+      }
+      Classification: {
+         [key: string]: {
+            '@Num': number
+            RaceNum: number
+            Pos: number
+            Status: string
+            RaceTime: number
+            Laps: number
+            Lapped: string
+            Gap: number
+            Penalty: number
+         }
+      }
+      MMR: {
+         [key: string]: {
+            BPP: number
+            PRB: number
+            NRB: number
+            total: number
+         }
+      }
+   }
+   Race2: {
+      FastestLap: {
+         [key: string]: FastestLap
+      }
+      Classification: {
+         [key: string]: {
+            '@Num': number
+            RaceNum: number
+            Pos: number
+            Status: string
+            RaceTime: number
+            Laps: number
+            Lapped: string
+            Gap: number
+            Penalty: number
+         }
+      }
+      MMR: {
+         [key: string]: {
+            BPP: number
+            PRB: number
+            NRB: number
+            total: number
+         }
+      }
+   }
+}
+
+export interface FastestLap {
+   '@Num': number
+   RaceNum: number
+   Pos: number
+   LapTime: number | string
+   Lap: number
+   Gap: number
+   Speed: number | undefined
+}

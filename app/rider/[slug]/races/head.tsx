@@ -1,9 +1,9 @@
-import DefaultTags from './DefaultTags'
+import DefaultTags from '../../../DefaultTags'
 
 export default function Head() {
    return (
       <>
-         <title>{"Pepiti's Dashboard"}</title>
+         <title>{'Rider Profile | Races'}</title>
          <DefaultTags />
       </>
    )

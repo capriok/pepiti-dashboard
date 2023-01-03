@@ -1,12 +1,13 @@
 'use client'
 
-import { ActionIcon, Drawer } from '@mantine/core'
+import { Drawer } from '@mantine/core'
 import { useViewportSize } from '@mantine/hooks'
 import { IconLayoutSidebarLeftExpand } from '@tabler/icons'
 import { useState } from 'react'
 import { IconButton } from './IconButton'
 import { SideBarPlayerStats } from './SideBarPlayerStats'
 import { MOBILE_WIDTH } from './TrackCard'
+import styles from '../rider/[slug]/RiderNavBar.module.css'
 
 export const Sidebar = () => {
    const [open, setOpen] = useState(false)
@@ -14,9 +15,13 @@ export const Sidebar = () => {
 
    return (
       <>
-         <IconButton onClick={() => setOpen(true)}>
-            <IconLayoutSidebarLeftExpand color='lime' />
-         </IconButton>
+         <div className={styles.navBar}>
+            <div className={styles.container}>
+               <IconButton onClick={() => setOpen(true)}>
+                  <IconLayoutSidebarLeftExpand color='lime' />
+               </IconButton>
+            </div>
+         </div>
 
          <Drawer
             opened={open}

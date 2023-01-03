@@ -9,16 +9,16 @@ export default async function Page() {
       <>
          <Sidebar />
          <div style={{ maxWidth: '100vw' }}>
-            {/* <div> */}
             {/* @ts-expect-error Server Component */}
             <ServerSummary />
 
-            {/* @ts-expect-error Server Component */}
-            <Leaderboards />
+            <div style={{ padding: '1rem 0' }}>
+               {/* @ts-expect-error Server Component */}
+               <Leaderboards />
+            </div>
 
             {/* @ts-expect-error Server Component */}
             <ServerTracksCarousel />
-            {/* </div> */}
          </div>
       </>
    )
