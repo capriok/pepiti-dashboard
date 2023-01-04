@@ -30,18 +30,13 @@ export const Sidebar = ({ slug }: { slug: string }) => {
    const linkDetails = [
       {
          href: `/track/${slug}`,
-         text: 'Records',
+         text: 'Dashboard',
          isActive: `/track/${slug}` === pathname,
       },
       {
          href: `/track/${slug}/races`,
          text: 'Races',
          isActive: `/track/${slug}/races` === pathname,
-      },
-      {
-         href: `/track/${slug}/favorite-bikes`,
-         text: 'Favorite Bikes',
-         isActive: `/track/${slug}/favorite-bikes` === pathname,
       },
    ]
 

@@ -9,7 +9,13 @@ import { PageLayout } from './components/PageLayout'
 import { Sidebar } from './components/Sidebar'
 import styles from './TrackNavBar.module.css'
 
-export default function TrackPageLayout({ children, params }: { children: React.ReactNode; params: { slug: string } }) {
+export default function TrackPageLayout({
+   children,
+   params,
+}: {
+   children: React.ReactNode
+   params: { slug: string }
+}) {
    const [open, setOpen] = useState(false)
 
    return (

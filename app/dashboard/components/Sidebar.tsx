@@ -4,7 +4,7 @@ import { Drawer } from '@mantine/core'
 import { useViewportSize } from '@mantine/hooks'
 import { IconHome2, IconLayoutSidebarLeftExpand } from '@tabler/icons'
 import { useState } from 'react'
-import { IconButton } from './IconButton'
+import { IconButton } from '../../components/IconButton'
 import { SideBarPlayerStats } from './SideBarPlayerStats'
 import { MOBILE_WIDTH } from './TrackCard'
 import styles from 'app/rider/[slug]/RiderNavBar.module.css'
@@ -18,14 +18,14 @@ export const Sidebar = () => {
       <>
          <div className={styles.navBar}>
             <div className={styles.container}>
-               <Link href='/'>
+               <Link href="/">
                   <IconButton>
-                     <IconHome2 color='lime' />
+                     <IconHome2 color="lime" />
                   </IconButton>
                </Link>
 
                <IconButton onClick={() => setOpen(true)}>
-                  <IconLayoutSidebarLeftExpand color='lime' />
+                  <IconLayoutSidebarLeftExpand color="lime" />
                </IconButton>
             </div>
          </div>

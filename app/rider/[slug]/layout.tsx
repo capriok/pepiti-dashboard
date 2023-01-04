@@ -3,13 +3,19 @@ import { Drawer } from '@mantine/core'
 import { IconLayoutSidebarLeftExpand } from '@tabler/icons'
 import Link from 'next/link'
 import { useState } from 'react'
-import { IconButton } from '../../dashboard/components/IconButton'
-import { LinkHomeButton } from '../../dashboard/components/LinkHomeButton'
+import { IconButton } from '../../components/IconButton'
+import { LinkHomeButton } from '../../components/LinkHomeButton'
 import { PageLayout } from '../components/PageLayout'
 import { Sidebar } from '../components/Sidebar'
 import styles from './RiderNavBar.module.css'
 
-export default function RiderPageLayout({ children, params }: { children: React.ReactNode; params: { slug: string } }) {
+export default function RiderPageLayout({
+   children,
+   params,
+}: {
+   children: React.ReactNode
+   params: { slug: string }
+}) {
    const [open, setOpen] = useState(false)
 
    return (
@@ -18,7 +24,7 @@ export default function RiderPageLayout({ children, params }: { children: React.
             <div className={styles.container}>
                <div className={styles.sideBarButton}>
                   <IconButton onClick={() => setOpen(true)}>
-                     <IconLayoutSidebarLeftExpand color='lime' />
+                     <IconLayoutSidebarLeftExpand color="lime" />
                   </IconButton>
                </div>
                <LinkHomeButton />
@@ -29,7 +35,7 @@ export default function RiderPageLayout({ children, params }: { children: React.
             className={styles.drawer}
             opened={open}
             onClose={() => setOpen(false)}
-            padding='md'
+            padding="md"
             styles={(theme) => ({ drawer: { backgroundColor: theme.colors.dark[8] } })}
          >
             <Sidebar slug={params.slug} />

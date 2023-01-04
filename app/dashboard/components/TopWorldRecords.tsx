@@ -3,33 +3,7 @@ import { Table, Text, ThemeIcon } from '@mantine/core'
 import { IconTrophy } from '@tabler/icons'
 import Link from 'next/link'
 import { WorldRecords } from '../../../types'
-
-interface PositionIconProps {
-   position: number
-}
-
-export const PositionIcon = ({ position }: PositionIconProps) => {
-   const handlePosition = () => {
-      switch (position) {
-         case 1:
-            return { from: 'gold', to: 'yellow' }
-         case 2:
-            return { from: 'gray', to: 'white' }
-         case 3:
-            return { from: 'brown', to: 'yellow' }
-      }
-   }
-
-   return (
-      <ThemeIcon
-         size='lg'
-         variant='gradient'
-         gradient={{ from: handlePosition()?.from as string, to: handlePosition()?.to as string }}
-      >
-         <IconTrophy />
-      </ThemeIcon>
-   )
-}
+import { PositionIcon } from '../../components/PositionIcon'
 
 export const TopWorldRecords = ({ worldRecords }: { worldRecords: WorldRecords }) => {
    const riderGuids = Object.keys(worldRecords)
@@ -39,7 +13,7 @@ export const TopWorldRecords = ({ worldRecords }: { worldRecords: WorldRecords }
             {idx === 0 || idx === 1 || idx === 2 ? (
                <PositionIcon position={idx + 1} />
             ) : (
-               <Text pl='sm'>{idx + 1}.</Text>
+               <Text pl="sm">{idx + 1}.</Text>
             )}
          </td>
          <td>
@@ -53,14 +27,14 @@ export const TopWorldRecords = ({ worldRecords }: { worldRecords: WorldRecords }
 
    return (
       <>
-         <Text size='sm' ml='sm' opacity={0.75}>
+         <Text size="sm" ml="sm" opacity={0.75}>
             World Records
          </Text>
          <Table
-            bg='rgba(255,255,255,0.025)'
+            bg="rgba(255,255,255,0.025)"
             style={{ borderRadius: '15px', borderCollapse: 'collapse' }}
-            mx='auto'
-            maw='95vw'
+            mx="auto"
+            maw="95vw"
          >
             <thead>
                <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>

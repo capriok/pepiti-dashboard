@@ -8,7 +8,11 @@ interface LoaderProps {
    variant?: 'ring' | 'circleDots'
 }
 
-export default function Loader({ withTitle = true, text = 'Loading...', variant = 'ring' }: LoaderProps) {
+export default function Loader({
+   withTitle = true,
+   text = 'Loading...',
+   variant = 'ring',
+}: LoaderProps) {
    return (
       <div className={styles.container}>
          {withTitle && <Title order={3}>{text}</Title>}

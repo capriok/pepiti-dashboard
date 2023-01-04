@@ -3,7 +3,7 @@ import DefaultTags from '../../DefaultTags'
 export default function Head() {
    return (
       <>
-         <title>{'Track Records | Records'}</title>
+         <title>{'Track Records | Stats'}</title>
          <DefaultTags />
       </>
    )

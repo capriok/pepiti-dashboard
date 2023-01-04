@@ -1,10 +1,10 @@
 'use client'
 import { Badge, Group, Table, Text } from '@mantine/core'
 import Link from 'next/link'
-import { PositionIcon } from './TopWorldRecords'
 import styles from './RanksLeaderboards.module.css'
 import { TopRecordData } from '../../../types'
 import { handleBikeColor } from '../../../utils/handleBikeColor'
+import { PositionIcon } from '../../components/PositionIcon'
 
 interface TopRanksProps {
    filterBy: 'SR' | 'MMR' | 'contact' | 'bikes'
@@ -18,7 +18,7 @@ export const TopRanks = ({ topData, filterBy }: TopRanksProps) => {
             {idx === 0 || idx === 1 || idx === 2 ? (
                <PositionIcon position={idx + 1} />
             ) : (
-               <Text pl='sm'>{idx + 1}.</Text>
+               <Text pl="sm">{idx + 1}.</Text>
             )}
          </td>
          <td>
@@ -40,15 +40,17 @@ export const TopRanks = ({ topData, filterBy }: TopRanksProps) => {
 
    return (
       <>
-         <Text size='sm' ml='sm' opacity={0.75}>
+         <Text size="sm" ml="sm" opacity={0.75}>
             {`Top ${filterBy[0].toUpperCase() + filterBy.slice(1, filterBy.length)}`}
          </Text>
-         <Table bg='rgba(255,255,255,0.025)' className={styles.table} maw='95vw' mx='auto'>
+         <Table bg="rgba(255,255,255,0.025)" className={styles.table} maw="95vw" mx="auto">
             <thead>
                <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>
                   <th style={{ borderTopLeftRadius: '15px', padding: '1em' }}>Rank</th>
                   <th>Rider</th>
-                  <th style={{ borderTopRightRadius: '15px' }}>{filterBy === 'bikes' ? 'Laps' : 'Amount'}</th>
+                  <th style={{ borderTopRightRadius: '15px' }}>
+                     {filterBy === 'bikes' ? 'Laps' : 'Amount'}
+                  </th>
                </tr>
             </thead>
             <tbody>{rows}</tbody>
