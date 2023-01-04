@@ -27,7 +27,10 @@ export const SideBarPlayerStats = () => {
       setIsFetching(true)
       const res = await fetch(`/api/searchRider?search=${searchVal}`)
       const { results: playerSearchData } = await res.json()
-      const resultsForSearch = playerSearchData.map((data: PlayerData) => ({ label: data.name, value: data._id }))
+      const resultsForSearch = playerSearchData.map((data: PlayerData) => ({
+         label: data.name,
+         value: data._id,
+      }))
 
       setSearchData(resultsForSearch)
       setIsFetching(false)
@@ -39,7 +42,6 @@ export const SideBarPlayerStats = () => {
       setIsFetching(true)
       const riderRecord = await fetch(`/api/getRiderData?guid=${selectedID}`)
       const data = await riderRecord.json()
-      console.log({ data })
 
       setPlayerData(data)
       setIsFetching(false)
@@ -61,10 +63,10 @@ export const SideBarPlayerStats = () => {
    }, [selectedID])
 
    return (
-      <Stack p='0 1em'>
+      <Stack p="0 1em">
          <Select
-            label='Track a player'
-            description='Case sensitive'
+            label="Track a player"
+            description="Case sensitive"
             autoFocus={false}
             error={searchVal.length && searchVal.length <= 1 ? 'Enter 2 or more characters' : false}
             searchable
@@ -75,7 +77,7 @@ export const SideBarPlayerStats = () => {
             searchValue={searchVal}
             onSearchChange={(e) => setSearchVal(e)}
             nothingFound="No player's found"
-            placeholder='Search by player name...'
+            placeholder="Search by player name..."
             data={searchData}
          />
 
@@ -83,12 +85,18 @@ export const SideBarPlayerStats = () => {
             <Title order={4}>Search for a player above! ☝️</Title>
          ) : (
             <div className={styles['stats-container']}>
-               <Avatar size='xl' m='0 auto' radius='lg' variant='gradient' gradient={{ from: 'green', to: 'violet' }}>
+               <Avatar
+                  size="xl"
+                  m="0 auto"
+                  radius="lg"
+                  variant="gradient"
+                  gradient={{ from: 'green', to: 'violet' }}
+               >
                   {playerData.name.slice(0, 2)}
                </Avatar>
                <Link href={`/rider/${playerData._id}`}>
                   <Button
-                     w='100%'
+                     w="100%"
                      styles={(theme) => ({
                         root: {
                            background: theme.colors.dark[4],
@@ -97,7 +105,7 @@ export const SideBarPlayerStats = () => {
                         },
                      })}
                   >
-                     <Text align='center'>Visit {playerData.name + "'s"} Profile</Text>
+                     <Text align="center">Visit {playerData.name + "'s"} Profile</Text>
                   </Button>
                </Link>
 
@@ -132,7 +140,7 @@ export const SideBarPlayerStats = () => {
 
                <Text>
                   Favorite Bike:{' '}
-                  <Badge size='lg' color={handleBikeColor(playerData.favorite_bike.name)}>
+                  <Badge size="lg" color={handleBikeColor(playerData.favorite_bike.name)}>
                      {playerData.favorite_bike.name}
                   </Badge>
                </Text>
@@ -143,7 +151,7 @@ export const SideBarPlayerStats = () => {
             </div>
          )}
 
-         <Button variant='gradient' gradient={{ from: 'green', to: 'blue' }}>
+         <Button variant="gradient" gradient={{ from: 'green', to: 'blue' }}>
             Donate to us!
          </Button>
       </Stack>
