@@ -17,8 +17,10 @@ export default async function Page() {
                <Leaderboards />
             </div>
 
-            {/* @ts-expect-error Server Component */}
-            <ServerTracksCarousel />
+            <div style={{ padding: '1rem 0' }}>
+               {/* @ts-expect-error Server Component */}
+               <ServerTracksCarousel />
+            </div>
          </div>
       </>
    )

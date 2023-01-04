@@ -21,13 +21,12 @@ export const TracksCarousel = ({ tracks }: { tracks: TopTrackRecords }) => {
       <>
          <Stack pb="1rem" className={styles.carouselHeaderContainer}>
             <Group>
-               <Title order={2} ml="md" style={{ marginLeft: 0 }}>
+               <Title order={2} ml="md" pb="1rem" mx="0">
                   Server Track Records
                </Title>
                <Link href="/records">See All</Link>
             </Group>
          </Stack>
-         <br />
          <Stack pb="1rem">
             <Carousel
                getEmblaApi={setEmbla}

@@ -40,7 +40,7 @@ export const TopRanks = ({ topData, filterBy }: TopRanksProps) => {
 
    return (
       <>
-         <Text size="sm" ml="sm" opacity={0.75}>
+         <Text size="sm" ml="sm" c="lightgrey" py="5px" opacity={0.75}>
             {`Top ${filterBy[0].toUpperCase() + filterBy.slice(1, filterBy.length)}`}
          </Text>
          <Table bg="rgba(255,255,255,0.025)" className={styles.table} maw="95vw" mx="auto">

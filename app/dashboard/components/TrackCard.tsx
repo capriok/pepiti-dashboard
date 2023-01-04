@@ -17,7 +17,7 @@ export const TrackCard = ({ name, records, total_laps }: Track) => {
                   <Text fw={700}>{rec.rider_name}</Text>
                </Link>
             </td>
-            <td>{rec.bike}</td>
+            <td>{formatLapTimes(rec.lap_time)}</td>
             {width > MOBILE_WIDTH && (
                <>
                   <td>{rec.average_speed.toFixed(1)}</td>
@@ -25,7 +25,7 @@ export const TrackCard = ({ name, records, total_laps }: Track) => {
                   <td>{formatLapTimes(rec.split_2)}</td>
                </>
             )}
-            <td>{formatLapTimes(rec.lap_time)}</td>
+            <td>{rec.bike}</td>
          </tr>
       )
    })
@@ -34,9 +34,14 @@ export const TrackCard = ({ name, records, total_laps }: Track) => {
       <Card shadow="sm" radius="lg" h="100%" style={{ overflowY: 'auto' }}>
          <Card.Section withBorder inheritPadding py="sm">
             <Group position="apart">
-               <Title order={2}>
-                  <Link href={`/track/${name}`}>{name}</Link>
-               </Title>
+               <Group align="baseline">
+                  <Title order={2}>
+                     <Link href={`/track/${name}`}>{name}</Link>
+                  </Title>
+                  <Text fz="sm" c="lightgrey">
+                     Top 10
+                  </Text>
+               </Group>
                <Badge size="lg" color="teal">
                   Total Laps: {total_laps.toLocaleString()}
                </Badge>
@@ -46,7 +51,7 @@ export const TrackCard = ({ name, records, total_laps }: Track) => {
             <thead>
                <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>
                   <th style={{ borderTopLeftRadius: '15px' }}>Name</th>
-                  <th>Bike</th>
+                  <th>Lap Time</th>
                   {width > MOBILE_WIDTH && (
                      <>
                         <th>Avg Speed</th>
@@ -54,7 +59,7 @@ export const TrackCard = ({ name, records, total_laps }: Track) => {
                         <th>Split 2</th>
                      </>
                   )}
-                  <th style={{ borderTopRightRadius: '15px' }}>Lap Time</th>
+                  <th style={{ borderTopRightRadius: '15px' }}>Bike</th>
                </tr>
             </thead>
             <tbody>{rows}</tbody>

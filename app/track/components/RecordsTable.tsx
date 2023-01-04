@@ -28,14 +28,16 @@ export const RecordsTable = ({ name, records, total_laps }: Track) => {
    const termRecords = records.filter((rec) =>
       rec.rider_name.toLowerCase().includes(term.toLowerCase())
    )
+
    const rows = termRecords?.map((rec, idx) => {
+      const rank = records.map((r) => r._id).indexOf(rec._id) + 1
       return (
          <tr key={idx}>
             <td style={{ height: '30px' }}>
-               {idx === 0 || idx === 1 || idx === 2 ? (
-                  <PositionIcon position={idx + 1} />
+               {rank === 1 || rank === 2 || rank === 3 ? (
+                  <PositionIcon position={rank} />
                ) : (
-                  <Text pl="sm">{idx + 1}.</Text>
+                  <Text pl="sm">{rank}.</Text>
                )}
             </td>{' '}
             <td>
@@ -58,7 +60,7 @@ export const RecordsTable = ({ name, records, total_laps }: Track) => {
                      <Text>See race</Text>
                   </Link>
                ) : (
-                  <></>
+                  <Text style={{ display: 'none' }}>null</Text>
                )}
             </td>
          </tr>

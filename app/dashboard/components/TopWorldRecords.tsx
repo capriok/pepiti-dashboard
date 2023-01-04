@@ -27,7 +27,7 @@ export const TopWorldRecords = ({ worldRecords }: { worldRecords: WorldRecords }
 
    return (
       <>
-         <Text size="sm" ml="sm" opacity={0.75}>
+         <Text size="sm" ml="sm" c="lightgrey" py="5px" opacity={0.75}>
             World Records
          </Text>
          <Table

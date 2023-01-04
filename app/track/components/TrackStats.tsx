@@ -14,7 +14,7 @@ export const TrackStats = ({ name, records, total_laps }: Track) => {
       if (skips[bike]) return
 
       let count = 0
-      records.forEach((r: any) => r.bike === bike && count++)
+      records.forEach((r) => r.bike === bike && count++)
       bikeRecords.push({ count, bike })
 
       skips[bike] = bike
@@ -26,7 +26,7 @@ export const TrackStats = ({ name, records, total_laps }: Track) => {
       if (skips[category]) return
 
       let count = 0
-      records.forEach((r: any) => r.category === category && count++)
+      records.forEach((r) => r.category === category && count++)
       categoryRecords.push({ count, category })
 
       skips[category] = category
@@ -36,8 +36,8 @@ export const TrackStats = ({ name, records, total_laps }: Track) => {
 
    const sortedCategoryRecords = categoryRecords.sort((a, b) => b.count - a.count)
 
-   const averageSpeed = records.reduce((acc: any, val: any) => {
-      return acc + val.average_speed / records.length
+   const averageSpeed = records.reduce((pre, rec) => {
+      return pre + rec.average_speed / records.length
    }, 0)
 
    return (
