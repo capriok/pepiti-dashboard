@@ -33,11 +33,11 @@ export const Sidebar = ({ slug }: { slug: string }) => {
          text: 'Dashboard',
          isActive: `/track/${slug}` === pathname,
       },
-      {
-         href: `/track/${slug}/races`,
-         text: 'Races',
-         isActive: `/track/${slug}/races` === pathname,
-      },
+      // {
+      //    href: `/track/${slug}/races`,
+      //    text: 'Races',
+      //    isActive: `/track/${slug}/races` === pathname,
+      // },
    ]
 
    return (
