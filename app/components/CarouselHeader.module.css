@@ -1,0 +1,15 @@
+.carouselHeaderContainer {
+   display: flex;
+   gap: 2em;
+   max-width: 1500px;
+   justify-content: space-evenly;
+   margin: 0 auto;
+   flex-wrap: wrap;
+   padding: 0 2rem;
+}
+
+@media (max-width: 700px) {
+   .carouselHeaderContainer {
+      padding: 0 0.5rem;
+   }
+}

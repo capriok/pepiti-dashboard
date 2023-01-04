@@ -1,23 +1,31 @@
 'use client'
-import { Badge, Card, Group, Table, Text, Title } from '@mantine/core'
+import { Card, Table, Text } from '@mantine/core'
 import { useViewportSize } from '@mantine/hooks'
 import Link from 'next/link'
-import { Track } from '../../../types'
-import { formatLapTimes } from '../../../utils/formatLapTimes'
+import { Track } from '../../../../types'
+import { formatLapTimes } from '../../../../utils/formatLapTimes'
+import { PositionIcon } from '../../../components/PositionIcon'
 
 export const MOBILE_WIDTH = 1000
 
-export const TrackCard = ({ name, records, total_laps }: Track) => {
+export const TrackTable = ({ name, records, total_laps }: Track) => {
    const { width } = useViewportSize()
    const rows = records?.map((rec, idx) => {
       return (
          <tr key={idx}>
+            <td style={{ height: '30px' }}>
+               {idx === 0 || idx === 1 || idx === 2 ? (
+                  <PositionIcon position={idx + 1} />
+               ) : (
+                  <Text pl="sm">{idx + 1}.</Text>
+               )}
+            </td>{' '}
             <td>
                <Link href={`/rider/${rec.rider_guid}`}>
                   <Text fw={700}>{rec.rider_name}</Text>
                </Link>
             </td>
-            <td>{rec.bike}</td>
+            <td>{formatLapTimes(rec.lap_time)}</td>
             {width > MOBILE_WIDTH && (
                <>
                   <td>{rec.average_speed.toFixed(1)}</td>
@@ -25,28 +33,28 @@ export const TrackCard = ({ name, records, total_laps }: Track) => {
                   <td>{formatLapTimes(rec.split_2)}</td>
                </>
             )}
-            <td>{formatLapTimes(rec.lap_time)}</td>
+            <td>{rec.bike}</td>
+            <td>
+               {rec.race_id ? (
+                  <Link href={`/race/${rec.race_id}`}>
+                     <Text>See race</Text>
+                  </Link>
+               ) : (
+                  <></>
+               )}
+            </td>
          </tr>
       )
    })
 
    return (
       <Card shadow="sm" radius="lg" h="100%" style={{ overflowY: 'auto' }}>
-         <Card.Section withBorder inheritPadding py="sm">
-            <Group position="apart">
-               <Title order={2}>
-                  <Link href={`/track/${name}`}>{name}</Link>
-               </Title>
-               <Badge size="lg" color="teal">
-                  Total Laps: {total_laps.toLocaleString()}
-               </Badge>
-            </Group>
-         </Card.Section>
          <Table fontSize="md" mt="0.5em">
             <thead>
                <tr style={{ backgroundColor: 'rgb(255,255,255,0.05)' }}>
-                  <th style={{ borderTopLeftRadius: '15px' }}>Name</th>
-                  <th>Bike</th>
+                  <th style={{ borderTopLeftRadius: '15px' }}>Rank</th>
+                  <th>Name</th>
+                  <th>Lap Time</th>
                   {width > MOBILE_WIDTH && (
                      <>
                         <th>Avg Speed</th>
@@ -54,7 +62,8 @@ export const TrackCard = ({ name, records, total_laps }: Track) => {
                         <th>Split 2</th>
                      </>
                   )}
-                  <th style={{ borderTopRightRadius: '15px' }}>Lap Time</th>
+                  <th>Bike</th>
+                  <th style={{ borderTopRightRadius: '15px' }}>Race</th>
                </tr>
             </thead>
             <tbody>{rows}</tbody>

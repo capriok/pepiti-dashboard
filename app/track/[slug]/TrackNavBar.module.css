@@ -1,0 +1,32 @@
+.navBar {
+  display: flex;
+  width: 100%;
+  padding: 1em 0;
+  background-color: rgb(255, 255, 255, 0.05);
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  max-width: 1500px;
+  padding: 0 2em;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding: 0 0.5em;
+  }
+}
+
+@media (min-width: 800px) {
+  .sideBarButton,
+  .drawer {
+    display: none;
+  }
+
+  .container {
+    justify-content: flex-end;
+  }
+}

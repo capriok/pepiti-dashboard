@@ -42,6 +42,7 @@ export interface TrackRecord {
    rider_name: string
    split_1: number
    split_2: number
+   race_id?: string
 }
 
 export interface TopTrackRecords {
