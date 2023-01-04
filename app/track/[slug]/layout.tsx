@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { IconButton } from '../../components/IconButton'
 import { LinkHomeButton } from '../../components/LinkHomeButton'
-import { PageLayout } from './components/PageLayout'
-import { Sidebar } from './components/Sidebar'
+import { PageLayout } from '../components/PageLayout'
+import { Sidebar } from '../components/Sidebar'
 import styles from './TrackNavBar.module.css'
 
 export default function TrackPageLayout({

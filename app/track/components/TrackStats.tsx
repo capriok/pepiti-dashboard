@@ -2,7 +2,7 @@
 import { Avatar, Badge, Card, Grid, Group, Table, Text, Title } from '@mantine/core'
 import { useViewportSize } from '@mantine/hooks'
 import Link from 'next/link'
-import { Track, TrackRecord } from '../../../../types'
+import { Track, TrackRecord } from '../../../types'
 
 export const MOBILE_WIDTH = 1000
 

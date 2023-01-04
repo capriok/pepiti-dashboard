@@ -14,13 +14,13 @@ import {
 import { useViewportSize } from '@mantine/hooks'
 import Link from 'next/link'
 import { useState } from 'react'
-import { Track } from '../../../../types'
-import { formatLapTimes } from '../../../../utils/formatLapTimes'
-import { PositionIcon } from '../../../components/PositionIcon'
+import { Track } from '../../../types'
+import { formatLapTimes } from '../../../utils/formatLapTimes'
+import { PositionIcon } from '../../components/PositionIcon'
 
 export const MOBILE_WIDTH = 1000
 
-export const TrackAccordian = ({ name, records, total_laps }: Track) => {
+export const RecordsTable = ({ name, records, total_laps }: Track) => {
    const { width } = useViewportSize()
 
    const [term, setTerm] = useState('')

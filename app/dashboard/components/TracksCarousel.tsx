@@ -27,6 +27,7 @@ export const TracksCarousel = ({ tracks }: { tracks: TopTrackRecords }) => {
                <Link href="/records">See All</Link>
             </Group>
          </Stack>
+         <br />
          <Stack pb="1rem">
             <Carousel
                getEmblaApi={setEmbla}
