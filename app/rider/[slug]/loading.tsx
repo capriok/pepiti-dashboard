@@ -1,8 +1,8 @@
-import Loader from '../../dashboard/components/Loader'
+import Loader from '../../components/Loader'
 
 export default function Page() {
    return (
-      <Loader text='Loading rider data...' variant='circleDots' />
+      <Loader text="Loading rider data..." variant="circleDots" />
       // <Stack mih={'100vh'} justify='center' align='center'>
       //    <Loader variant='bars' color='lime' />
 

@@ -3,8 +3,8 @@ import { TrackStats } from './components/TrackStats'
 import { TrackAccordian } from './components/TrackAccordian'
 
 export default async function Page({ params: { slug } }: { params: { slug: string } }) {
-   const trackReq = getData(`https://pepiti.com/stats/api/v0/records/track/${slug}`, 60)
-   const [{ records, total_laps, track }] = await Promise.all([trackReq])
+   const request = getData(`https://pepiti.com/stats/api/v0/records/track/${slug}`, 60)
+   const [{ records, total_laps, track }] = await Promise.all([request])
 
    return (
       <>
