@@ -57,17 +57,19 @@ export const TrackStats = ({ name, records, total_laps }: Track) => {
                </Group>
             </Group>
          </Card.Section>
-         <Grid align="center">
+         <Grid>
             <Grid.Col span={6}>
-               <br />
-               <Text>Most used Category:</Text>
-               <Title order={3}>{sortedCategoryRecords[0].category}</Title>
                <br />
                <Text>Most used Bike:</Text>
                <Title order={2}>{sortedBikeRecords[0].bike}</Title>
                <br />
                <Text>Average Speed:</Text>
                <Title order={2}>{averageSpeed.toFixed(2)}</Title>
+            </Grid.Col>
+            <Grid.Col span={6}>
+               <br />
+               <Text>Most used Category:</Text>
+               <Title order={3}>{sortedCategoryRecords[0].category}</Title>
             </Grid.Col>
          </Grid>
       </Card>

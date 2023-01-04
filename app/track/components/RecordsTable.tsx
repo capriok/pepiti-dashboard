@@ -54,7 +54,7 @@ export const RecordsTable = ({ name, records, total_laps }: Track) => {
                </>
             )}
             <td>{rec.bike}</td>
-            <td>
+            {/* <td>
                {rec.race_id ? (
                   <Link href={`/race/${rec.race_id}`}>
                      <Text>See race</Text>
@@ -62,7 +62,7 @@ export const RecordsTable = ({ name, records, total_laps }: Track) => {
                ) : (
                   <Text style={{ display: 'none' }}>null</Text>
                )}
-            </td>
+            </td> */}
          </tr>
       )
    })
@@ -95,8 +95,8 @@ export const RecordsTable = ({ name, records, total_laps }: Track) => {
                                  <th>Split 2</th>
                               </>
                            )}
-                           <th>Bike</th>
-                           <th style={{ borderTopRightRadius: '15px' }}>Race</th>
+                           <th style={{ borderTopRightRadius: '15px' }}>Bike</th>
+                           {/* <th style={{ borderTopRightRadius: '15px' }}>Race</th> */}
                         </tr>
                      </thead>
                      <tbody>{rows}</tbody>
