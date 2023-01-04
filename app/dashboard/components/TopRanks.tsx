@@ -3,8 +3,8 @@ import { Badge, Group, Table, Text } from '@mantine/core'
 import Link from 'next/link'
 import { PositionIcon } from './TopWorldRecords'
 import styles from './RanksLeaderboards.module.css'
-import { TopRecordData } from '../../types'
-import { handleBikeColor } from '../../utils/handleBikeColor'
+import { TopRecordData } from '../../../types'
+import { handleBikeColor } from '../../../utils/handleBikeColor'
 
 interface TopRanksProps {
    filterBy: 'SR' | 'MMR' | 'contact' | 'bikes'

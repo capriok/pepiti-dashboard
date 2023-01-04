@@ -1,6 +1,6 @@
 import { Grid } from '@mantine/core'
-import { WorldRecords } from '../../types'
-import { getData } from '../../utils/getData'
+import { WorldRecords } from '../../../types'
+import { getData } from '../../../utils/getData'
 import { MAX_WIDTH } from '../components/Summary'
 import { TopRanks } from '../components/TopRanks'
 import { TopWorldRecords } from '../components/TopWorldRecords'

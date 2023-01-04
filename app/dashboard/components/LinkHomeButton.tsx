@@ -1,14 +1,14 @@
 'use client'
 
-import { IconHomeInfinity } from '@tabler/icons'
+import { IconChartCandle } from '@tabler/icons'
 import Link from 'next/link'
 import { IconButton } from './IconButton'
 
 export const LinkHomeButton = () => {
    return (
-      <Link href='/'>
+      <Link href='/dashboard'>
          <IconButton>
-            <IconHomeInfinity color='lime' />
+            <IconChartCandle color='lime' />
          </IconButton>
       </Link>
    )

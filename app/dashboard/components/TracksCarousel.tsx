@@ -4,7 +4,7 @@ import { Stack, Title } from '@mantine/core'
 import Autoplay from 'embla-carousel-autoplay'
 import { useRef, useState } from 'react'
 import { useMediaQuery } from '@mantine/hooks'
-import { TopTrackRecords } from '../../types'
+import { TopTrackRecords } from '../../../types'
 import { TrackCard } from './TrackCard'
 
 export const TracksCarousel = ({ tracks }: { tracks: TopTrackRecords }) => {

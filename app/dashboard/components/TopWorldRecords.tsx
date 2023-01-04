@@ -2,7 +2,7 @@
 import { Table, Text, ThemeIcon } from '@mantine/core'
 import { IconTrophy } from '@tabler/icons'
 import Link from 'next/link'
-import { WorldRecords } from '../../types'
+import { WorldRecords } from '../../../types'
 
 interface PositionIconProps {
    position: number

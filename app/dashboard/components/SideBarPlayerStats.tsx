@@ -3,8 +3,8 @@ import { Avatar, Badge, Button, Group, Select, Stack, Text, Title } from '@manti
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { RiderRecord } from '../../types'
-import { handleBikeColor } from '../../utils/handleBikeColor'
+import { RiderRecord } from '../../../types'
+import { handleBikeColor } from '../../../utils/handleBikeColor'
 import styles from './SideBarPlayerStats.module.css'
 
 export interface PlayerData {

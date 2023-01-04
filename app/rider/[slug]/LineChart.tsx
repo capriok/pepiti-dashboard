@@ -13,7 +13,7 @@ import {
 } from 'chart.js'
 import { Bar, Line } from 'react-chartjs-2'
 import { TrackRecord } from '../../../types'
-import { MAX_WIDTH } from '../../components/Summary'
+import { MAX_WIDTH } from '../../dashboard/components/Summary'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend)
 

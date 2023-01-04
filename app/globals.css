@@ -15,6 +15,10 @@ a:hover {
    color: #51cf66;
 }
 
+img {
+   max-width: 100%;
+}
+
 @media (max-width: 800px) {
    body {
       width: 100%;
