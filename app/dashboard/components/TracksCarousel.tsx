@@ -7,7 +7,7 @@ import { useMediaQuery } from '@mantine/hooks'
 import { TopTrackRecords } from '../../../types'
 import { TrackCard } from './TrackCard'
 import Link from 'next/link'
-import styles from './carouselHeader.module.css'
+import styles from 'app/components/CarouselHeader.module.css'
 
 export const TracksCarousel = ({ tracks }: { tracks: TopTrackRecords }) => {
    const TRANSITION_DURATION = 10000
